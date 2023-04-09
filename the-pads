@@ -5,8 +5,10 @@
      WHEN o.Occupation = 'Professor' THEN '(P)'
      ELSE '(S)' 
      END AS 'name+occupation'
-        (SELECT CONCAT ('There are a total of', COUNT(Occupation) AS occupation_count, Occupation, 's' )
-        FROM OCCUPATIONS)
 FROM OCCUPATIONS AS o
-    
-ORDER BY o.Name ASC;*/
+UNION ALL 
+    SELECT CONCAT('There are a total of', COUNT(Occupation), LOWER(Occupation), 's.')
+FROM OCCUPATIONS as o1
+GROUP BY o1.Occupation
+ORDER BY o.Name ASC;    
+*/
