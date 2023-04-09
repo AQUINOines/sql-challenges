@@ -12,3 +12,16 @@ FROM OCCUPATIONS as o1
 GROUP BY o1.Occupation
 ORDER BY o.Name ASC;    
 */
+
+/* agora a versão correta
+SELECT * 
+FROM 
+    ((SELECT CONCAT(Name,'(', LEFT (Occupation,1), ')') AS name 
+      FROM OCCUPATIONS 
+      ORDER BY name) 
+UNION ALL 
+     (SELECT CONCAT ('There are a total of ', COUNT(Occupation),' ', LOWER(Occupation), 's.') 
+FROM OCCUPATIONS 
+GROUP BY Occupation
+ORDER BY COUNT(Occupation) asc)) AS table_name
+ORDER BY Name;*/
