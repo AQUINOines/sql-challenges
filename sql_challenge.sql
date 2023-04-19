@@ -1,4 +1,4 @@
-SELECT DISTINCT c.company_code, 
+SELECT DISTINCT c.company_code, hfghf
                 c.founder,
                 COUNT(DISTINCT lm.lead_manager_code),
                 COUNT(DISTINCT sm.senior_manager_code),
