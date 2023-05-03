@@ -13,7 +13,7 @@ GROUP BY o1.Occupation
 ORDER BY o.Name ASC;    
 */
 
-/* agora a versão correta
+/* agora a versão correta*/
 SELECT * 
 FROM 
     ((SELECT CONCAT(Name,'(', LEFT (Occupation,1), ')') AS name 
@@ -24,4 +24,4 @@ UNION ALL
 FROM OCCUPATIONS 
 GROUP BY Occupation
 ORDER BY COUNT(Occupation) asc)) AS table_name
-ORDER BY Name;*/
+ORDER BY Name;
